@@ -1,0 +1,12 @@
+<resources>
+    <!-- 标准背景色 -->
+    <color name="stand_backgroud">#F4F4F4</color>
+    <!-- 黑色 -->
+    <color name="black">#333333</color>
+    <!-- gray -->
+    <color name="gray">#E5E5E5</color>
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="light_gray">#B3B3B3</color>
+    <color name="time_gray">#808080</color>
+</resources>

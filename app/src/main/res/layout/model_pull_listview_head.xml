@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!-- ListView的头部 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 内容 -->
+
+    <RelativeLayout
+        android:id="@+id/head_contentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="15dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+              >
+
+                <ImageView
+                    android:id="@+id/ivHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/loading" />
+
+                <ProgressBar
+                    android:id="@+id/pulldown_footer_loading"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/tvHead"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/bv_loading_rotate_pull_re"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pull_to_refresh_pull_label"
+                android:textColor="@color/black"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

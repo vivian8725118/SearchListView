@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SearchListView</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="search">搜索</string>
+</resources>

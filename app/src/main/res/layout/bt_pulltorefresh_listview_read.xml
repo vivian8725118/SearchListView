@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.handmark.pulltorefresh.search.SearchListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/stand_backgroud"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:drawSelectorOnTop="false"
+            android:listSelector="@android:color/transparent" />
+
+
+</FrameLayout>

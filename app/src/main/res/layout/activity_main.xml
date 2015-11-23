@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <vivian.com.searchlistview.widget.SearchListView
+       android:id="@+id/listview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_gravity="center_horizontal"
+       android:background="@color/stand_backgroud"
+       android:cacheColorHint="#00000000"
+
+       android:drawSelectorOnTop="false"
+       android:listSelector="@android:color/transparent">
+
+   </vivian.com.searchlistview.widget.SearchListView>
+
+</RelativeLayout>
