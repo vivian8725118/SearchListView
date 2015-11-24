@@ -25,31 +25,29 @@ import java.util.Locale;
 import vivian.com.searchlistview.R;
 
 /**
- *
- *                        ,%%%%%%%%,
- *                      ,%%/\%%%%/\%%
- *                     ,%%%\c "" J/%%%
- *            %.       %%%%/ o  o \%%%
- *            `%%.     %%%%    _  |%%%
- *             `%%     `%%%%(__Y__)%%'
- *             //       ;%%%%`\-/%%%'
- *            ((       /  `%%%%%%%'
- *             \\    .'          |
- *              \\  /       \  | |
- *               \\/         ) | |
- *                \         /_ | |__
- *                (___________))))))) 攻城湿
- *
- *
- *          _       _
- *   __   _(_)_   _(_) __ _ _ __
- *   \ \ / / \ \ / / |/ _` | '_ \
- *    \ V /| |\ V /| | (_| | | | |
- *     \_/ |_| \_/ |_|\__,_|_| |_|
- *
+ * ,%%%%%%%%,
+ * ,%%/\%%%%/\%%
+ * ,%%%\c "" J/%%%
+ * %.       %%%%/ o  o \%%%
+ * `%%.     %%%%    _  |%%%
+ * `%%     `%%%%(__Y__)%%'
+ * //       ;%%%%`\-/%%%'
+ * ((       /  `%%%%%%%'
+ * \\    .'          |
+ * \\  /       \  | |
+ * \\/         ) | |
+ * \         /_ | |__
+ * (___________))))))) 攻城湿
+ * <p/>
+ * <p/>
+ * _       _
+ * __   _(_)_   _(_) __ _ _ __
+ * \ \ / / \ \ / / |/ _` | '_ \
+ * \ V /| |\ V /| | (_| | | | |
+ * \_/ |_| \_/ |_|\__,_|_| |_|
  *
  * @author vivian:the girl who deeply loves 7heaven
- * create at 15/11/23 17:10
+ *         create at 15/11/23 17:10
  */
 
 public class SearchListView extends ListView implements OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemSelectedListener {
@@ -189,7 +187,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 获取头部视图
      *
-     * @return
+     * @return View
      */
     private View getHeaderView() {
         if (viewHeader == null || tipsTextview == null) {
@@ -211,7 +209,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 获取尾部视图
      *
-     * @return
+     * @return View
      */
     private View getFooterView() {
         if (viewFooter == null) {
@@ -257,7 +255,6 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
         headHeight += headerContentHeight;
 
-        //TODO ????
         getHeaderView().setPadding(0, -1 * headHeight, 0, 0);
     }
 
@@ -306,11 +303,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        if (onItemLongClickListener == null) {
-            return false;
-        }
-
-        return onItemLongClickListener.onItemLongClick(parent, view, position > 0 ? position - 1 : 0, id);
+        return onItemLongClickListener!=null && onItemLongClickListener.onItemLongClick(parent, view, position > 0 ? position - 1 : 0, id);
     }
 
     @Override
@@ -329,7 +322,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 设置是否可用下拉刷新
      *
-     * @param enable
+     * @param enable boolean
      */
     public void pullRefreshEnable(boolean enable) {
         enablePullRefresh = enable;
@@ -378,7 +371,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                 if (getFirstVisiblePosition() == 0 && (Math.abs(getHeaderView().getPaddingTop()) < headHeight || deltaY > 0)) {
                     final int paddingTop = getHeaderView().getPaddingTop();
 
-                    //TODO change paddingTop with the movement of the finger
+                    // change paddingTop with the movement of the finger
                     getHeaderView().setPadding(0, (int) (paddingTop + deltaY / OFFSET_RADIO), 0, 0);
 
                     if (getHeaderView().getPaddingTop() > 0) {
@@ -472,11 +465,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         final int visibleItemCount = lastVisiblePostion - firstVisiblePosition + 1;
         final int totalItemCount = getCount() - getFooterViewsCount();
 
-        if (visibleItemCount < totalItemCount) {
-            return true;
-        }
-
-        return false;
+        return (visibleItemCount<totalItemCount);
     }
 
     @Override
@@ -484,6 +473,18 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         if (scroller.computeScrollOffset()) {
             getHeaderView().setPadding(0, scroller.getCurrY(), 0, 0);
             postInvalidate();
+        }
+    }
+
+    /**
+     * 自动刷新，显示头部
+     * @param show boolean
+     */
+    public void showHeader(boolean show) {
+        final int paddingTop = getHeaderView().getPaddingTop();
+        if (show) {
+            imgHeader.setVisibility(View.GONE);
+            scroller.startScroll(0, paddingTop, 0, -paddingTop, SCROLL_DURATION);
         }
     }
 
@@ -514,14 +515,14 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 计算view的宽高
      *
-     * @param child
+     * @param child View
      */
     private void measureView(View child) {
         ViewGroup.LayoutParams lp = child.getLayoutParams();
         if (lp == null) {
             lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
-        int childWidthSpec = ViewGroup.getChildMeasureSpec(0, 0 + 0, lp.width);
+        int childWidthSpec = ViewGroup.getChildMeasureSpec(0, 0, lp.width);
         int lpHeight = lp.height;
         int childHeightSpec;
         if (lpHeight > 0) {
@@ -594,18 +595,16 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     /**
      * 下拉刷新监听事件
      *
-     * @param listener
+     * @param listener OnRefreshListener
      */
     public void setOnRefreshListener(OnRefreshListener listener) {
         this.onRefreshListener = listener;
     }
 
-    ;
-
     /**
      * 获取更多监听事件
      *
-     * @param listener
+     * @param listener OnLastItemVisibleListener
      */
     public void setOnLastItemVisibleListener(OnLastItemVisibleListener listener) {
         this.onLastItemVisibleListener = listener;
@@ -628,8 +627,6 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         progressBarFooter.setVisibility(View.GONE);
     }
 
-    ;
-
     /**
      * 刷新事件接口
      */
@@ -637,7 +634,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         /**
          * 刷新事件接口 这里要注意的是获取更多完 要关闭 刷新的进度条onRefreshComplete()
          **/
-        public void onRefresh();
+        void onRefresh();
     }
 
     /**
@@ -647,6 +644,6 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
         /**
          * 刷新事件接口 这里要注意的是获取更多完 要关闭 更多的进度条 onRefreshComplete()
          **/
-        public void onLastItemVisible();
+        void onLastItemVisible();
     }
 }

@@ -16,7 +16,7 @@ import vivian.com.searchlistview.widget.SearchListView;
 public class MainActivity extends Activity {
     SearchListView mListView;
     SearchBar mSearchBar;
-    ArrayList<String> mList=new ArrayList<String>();
+    ArrayList<String> mList=new ArrayList<>();
     MyAdapter mAdappter;
 
     @Override
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         mSearchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 15/11/23  the click event
+                // 15/11/23  the click event
                 
             }
         });
@@ -46,6 +46,15 @@ public class MainActivity extends Activity {
         }
         mAdappter=new MyAdapter();
         mListView.setAdapter(mAdappter);
+
+        //初始自动下拉刷新
+        mListView.showHeader(true);
+        mListView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mListView.onRefreshComplete();
+            }
+        }, 3000);
 
         mListView.setOnRefreshListener(new SearchListView.OnRefreshListener() {
             @Override
