@@ -25,29 +25,31 @@ import java.util.Locale;
 import vivian.com.searchlistview.R;
 
 /**
- * ,%%%%%%%%,
- * ,%%/\%%%%/\%%
- * ,%%%\c "" J/%%%
- * %.       %%%%/ o  o \%%%
- * `%%.     %%%%    _  |%%%
- * `%%     `%%%%(__Y__)%%'
- * //       ;%%%%`\-/%%%'
- * ((       /  `%%%%%%%'
- * \\    .'          |
- * \\  /       \  | |
- * \\/         ) | |
- * \         /_ | |__
- * (___________))))))) 攻城湿
- * <p/>
- * <p/>
- * _       _
- * __   _(_)_   _(_) __ _ _ __
- * \ \ / / \ \ / / |/ _` | '_ \
- * \ V /| |\ V /| | (_| | | | |
- * \_/ |_| \_/ |_|\__,_|_| |_|
+ *
+ *                        ,%%%%%%%%,
+ *                      ,%%/\%%%%/\%%
+ *                     ,%%%\c "" J/%%%
+ *            %.       %%%%/ o  o \%%%
+ *            `%%.     %%%%    _  |%%%
+ *             `%%     `%%%%(__Y__)%%'
+ *             //       ;%%%%`\-/%%%'
+ *            ((       /  `%%%%%%%'
+ *             \\    .'          |
+ *              \\  /       \  | |
+ *               \\/         ) | |
+ *                \         /_ | |__
+ *                (___________))))))) 攻城湿
+ *
+ *
+ *          _       _
+ *   __   _(_)_   _(_) __ _ _ __
+ *   \ \ / / \ \ / / |/ _` | '_ \
+ *    \ V /| |\ V /| | (_| | | | |
+ *     \_/ |_| \_/ |_|\__,_|_| |_|
+ *
  *
  * @author vivian:the girl who deeply loves 7heaven
- *         create at 15/11/23 17:10
+ * create at 15/11/23 17:10
  */
 
 public class SearchListView extends ListView implements OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemSelectedListener {
