@@ -48,7 +48,7 @@ import vivian.com.searchlistview.R;
  *     \_/ |_| \_/ |_|\__,_|_| |_|
  *
  *
- * @author vivian:the girl who deeply loves 7heaven
+ * @author vivian:the girl who is in love with 7heaven deeply
  * create at 15/11/23 17:10
  */
 
