@@ -434,7 +434,7 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                     }
                 } else if (getLastVisiblePosition() == totalItemCount - 1) {
                     // 数量充满屏幕才触发
-                    if (isAutoFetchMore && !isMore && onLastItemVisibleListener != null && isFillScreenItem() && viewFooter != null) {
+                    if (isAutoFetchMore && !isMore && onLastItemVisibleListener != null /*&& isFillScreenItem()*/ && viewFooter != null) {
                         txtFooter.setText(getContext().getResources().getString(R.string.loading));
                         progressBarFooter.setVisibility(View.VISIBLE);
 
@@ -507,6 +507,16 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
     @Override
     public void onScroll(AbsListView view, int firstVisiableItem, int visibleItemCount, int totalItemCount) {
         this.totalItemCount = totalItemCount;
+        if (getLastVisiblePosition() == totalItemCount - 1) {
+            // 数量充满屏幕才触发
+            if (isAutoFetchMore && !isMore && onLastItemVisibleListener != null /*&& isFillScreenItem()*/ && viewFooter != null) {
+                txtFooter.setText(getContext().getResources().getString(R.string.loading));
+                progressBarFooter.setVisibility(View.VISIBLE);
+
+                isMore = true;
+                onLastItemVisibleListener.onLastItemVisible();
+            }
+        }
     }
 
     @Override

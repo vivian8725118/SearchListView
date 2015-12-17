@@ -36,6 +36,12 @@ public class MainActivity extends Activity {
         });
         mListView.addHeaderView(mSearchBar);
 
+        //他们说header 中添加图片有问题，我试了一下，证明是没有问题的
+//        ImageView img=new ImageView(this);
+//        img.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+//        img.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,30));
+//        mListView.addHeaderView(img);
+
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
 
