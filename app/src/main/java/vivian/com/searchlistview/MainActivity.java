@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class MainActivity extends Activity {
     SearchBar mSearchBar;
     ArrayList<String> mList = new ArrayList<>();
     MyAdapter mAdappter;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class MainActivity extends Activity {
         mListView = (SearchListView) findViewById(R.id.listview);
         mSearchBar = new SearchBar(this);
 
+        layout=(LinearLayout)LayoutInflater.from(this).inflate(R.layout.header_test,null);
+        layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         mSearchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,13 +39,17 @@ public class MainActivity extends Activity {
 
             }
         });
-        mListView.addHeaderView(mSearchBar);
+//        layout.addView(mSearchBar);
+//        mListView.addHeaderView(mSearchBar);
+
 
         //他们说header 中添加图片有问题，我试了一下，证明是没有问题的
-//        ImageView img=new ImageView(this);
-//        img.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
-//        img.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,30));
-//        mListView.addHeaderView(img);
+        ImageView img=new ImageView(this);
+        img.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+        img.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
+//        layout.addView(img,0);
+
+        mListView.addHeaderView(layout);
 
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
