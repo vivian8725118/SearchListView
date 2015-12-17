@@ -2,6 +2,8 @@
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
 
 ![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/SearchListView.gif)
+![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-161726.jpg)
+![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-163013.jpg)
 #Usage
 ###SearchListView 直接放入布局中
 
