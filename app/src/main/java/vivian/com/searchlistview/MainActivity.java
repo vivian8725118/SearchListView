@@ -16,7 +16,7 @@ import vivian.com.searchlistview.widget.SearchListView;
 public class MainActivity extends Activity {
     SearchListView mListView;
     SearchBar mSearchBar;
-    ArrayList<String> mList=new ArrayList<>();
+    ArrayList<String> mList = new ArrayList<>();
     MyAdapter mAdappter;
 
     @Override
@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mListView=(SearchListView)findViewById(R.id.listview);
-        mSearchBar=new SearchBar(this);
+        mListView = (SearchListView) findViewById(R.id.listview);
+        mSearchBar = new SearchBar(this);
 
         mSearchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 15/11/23  the click event
-                
+
             }
         });
         mListView.addHeaderView(mSearchBar);
@@ -40,11 +40,11 @@ public class MainActivity extends Activity {
         mListView.setAutoFetchMore(true);//自动加载更多
 
         //initialize
-        for(int i=0;i<10;i++){
-            String str="item"+(i+1);
+        for (int i = 0; i < 10; i++) {
+            String str = "item" + (i + 1);
             mList.add(str);
         }
-        mAdappter=new MyAdapter();
+        mAdappter = new MyAdapter();
         mListView.setAdapter(mAdappter);
 
         //初始自动下拉刷新
@@ -59,49 +59,45 @@ public class MainActivity extends Activity {
         mListView.setOnRefreshListener(new SearchListView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mList.clear();
-                for (int i = 0; i < 10; i++) {
-                    String str = "item" + (i + 1);
-                    mList.add(str);
-                }
 
                 mListView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+
+                        mList.clear();
+                        for (int i = 0; i < 10; i++) {
+                            String str = "item" + (i + 1);
+                            mList.add(str);
+                        }
                         mAdappter.notifyDataSetChanged();
                         mListView.onRefreshComplete();
                     }
-                },3000);
+                }, 3000);
             }
         });
 
         mListView.setOnLastItemVisibleListener(new SearchListView.OnLastItemVisibleListener() {
             @Override
             public void onLastItemVisible() {
-                try {
-                    int start=mList.size();
-                    for (int i = start; i < start + 10; i++) {
-                        String str = "item" + (i + 1);
-                        mList.add(str);
-                    }
-                    mListView.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAdappter.notifyDataSetChanged();
-                            mListView.onRefreshComplete();
+                mListView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        int start = mList.size();
+                        for (int i = start; i < start + 10; i++) {
+                            String str = "item" + (i + 1);
+                            mList.add(str);
                         }
-                    }, 3000);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-
+                        mAdappter.notifyDataSetChanged();
+                        mListView.onRefreshComplete();
+                    }
+                }, 3000);
 
             }
         });
 
     }
 
-    class MyAdapter extends BaseAdapter{
+    class MyAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -120,8 +116,8 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view= LayoutInflater.from(MainActivity.this).inflate(R.layout.item,null);
-            TextView textView=(TextView)view.findViewById(R.id.textView);
+            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.item, null);
+            TextView textView = (TextView) view.findViewById(R.id.textView);
             textView.setText(getItem(position));
 
             return view;
