@@ -1,0 +1,22 @@
+language: android
+jdk:
+  - openjdk7
+
+android:
+components:
+  -build_tools-21.1.2
+  -android-21
+
+notifications:
+  email:true
+
+cache:false
+
+sudo:false
+
+install:
+
+  - chmod +x ./gradlew; ls -l gradlew; ./gradlew wrapper -v
+
+script:
+  - ./gradlew clean assembleDebug
