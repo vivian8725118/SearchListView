@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.org/Harlber/Moose.svg?branch=master)](https://travis-ci.org/Harlber/Moose)
-[![Coverage Status](https://coveralls.io/repos/Harlber/Moose/badge.svg?branch=master&service=github)](https://coveralls.io/github/Harlber/Moose?branch=master)
+[![Build Status](https://travis-ci.org/vivian8725118/SearchListView.svg?branch=master)](https://github.com/vivian8725118/SearchListView)
+[![Coverage Status](https://coveralls.io/repos/vivian8725118/SearchListView/badge.svg?branch=master&service=github)](https://coveralls.io/github/vivian8725118/SearchListView?branch=master)
 # SearchListView
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
 #ScreenShot
