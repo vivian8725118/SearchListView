@@ -81,6 +81,10 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
      * 正在刷新
      **/
     private final static int TOUCH_STATE_REFRESHING = 3;
+    /**
+     * 已加载全部
+     */
+    private final static int LOAD_ALL=4;
 
     /**
      * 标识查看更多状态
@@ -359,7 +363,8 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                 break;
             case MotionEvent.ACTION_MOVE: // 手指正在移动的时候
                 if (!enablePullRefresh) {
-                    return false;
+//                    return super.onTouchEvent(ev);
+                    break;
                 }
 
                 if (firstY == -1) {
@@ -563,8 +568,15 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
 
         txtFooter.setText(getContext().getResources().getString(R.string.pull_to_refresh_from_bottom_pull_label));
         progressBarFooter.setVisibility(View.GONE);
+
+//        getFooterView().setVisibility(View.GONE);
     }
 
+    public void setLoadAll(){
+        state=LOAD_ALL;
+        changeHeaderViewByState();
+        pullRefreshEnable(false);
+    }
     // 当状态改变时候，调用该方法，以更新界面
     private void changeHeaderViewByState() {
         switch (state) {
@@ -600,6 +612,13 @@ public class SearchListView extends ListView implements OnScrollListener, Adapte
                 tipsTextview.setText(getContext().getResources().getString(R.string.pull_to_refresh_pull_label));
                 imgHeader.setVisibility(View.VISIBLE);
                 progressBarHeader.setVisibility(View.GONE);
+                break;
+            case LOAD_ALL:
+                Log.v(TAG,"当前状态,load all");
+
+                tipsTextview.setText(getContext().getResources().getString(R.string.load_all));
+                imgHeader.setVisibility(View.VISIBLE);
+                progressBarFooter.setVisibility(View.GONE);
                 break;
         }
     }

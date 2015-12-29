@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,16 +39,16 @@ public class MainActivity extends Activity {
             }
         });
 //        layout.addView(mSearchBar);
-//        mListView.addHeaderView(mSearchBar);
+        mListView.addHeaderView(mSearchBar);
 
 
         //他们说header 中添加图片有问题，我试了一下，证明是没有问题的
-        ImageView img=new ImageView(this);
-        img.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
-        img.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
+//        ImageView img=new ImageView(this);
+//        img.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+//        img.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
 //        layout.addView(img,0);
 
-        mListView.addHeaderView(layout);
+//        mListView.addHeaderView(layout);
 
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
@@ -104,6 +103,9 @@ public class MainActivity extends Activity {
                         }
                         mAdappter.notifyDataSetChanged();
                         mListView.onRefreshComplete();
+                        if(mList.size()>30){
+                            mListView.setLoadAll();
+                        }
                     }
                 }, 3000);
 

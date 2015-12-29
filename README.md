@@ -1,13 +1,14 @@
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://travis-ci.org/Harlber/Moose.svg?branch=master)](https://travis-ci.org/Harlber/Moose)
+[![Coverage Status](https://coveralls.io/repos/Harlber/Moose/badge.svg?branch=master&service=github)](https://coveralls.io/github/Harlber/Moose?branch=master)
 # SearchListView
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
-
+#ScreenShot
 ![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/SearchListView.gif)
 ![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-161726.jpg)
 ![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-163013.jpg)
 #Usage
 ###SearchListView 直接放入布局中
-
-
          <vivian.com.searchlistview.widget.SearchListView
              android:id="@+id/listview"
              android:layout_width="match_parent"
@@ -25,5 +26,6 @@
 ###设置自动下拉刷新
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
+        手动请求网络-->显示 header-->请求成功，关闭 header
     
     
