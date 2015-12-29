@@ -3,16 +3,16 @@ jdk:
   - openjdk7
 
 android:
-components:
-  -build_tools-21.1.2
-  -android-21
+  components:
+    -build_tools-21.1.2
+    -android-21
 
 notifications:
   email:true
 
-cache:false
+cache: false
 
-sudo:false
+sudo: false
 
 install:
 
