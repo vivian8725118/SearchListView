@@ -7,9 +7,6 @@ android:
     -build_tools-21.1.2
     -android-21
 
-notifications:
-  email:true
-
 cache: false
 
 sudo: false
