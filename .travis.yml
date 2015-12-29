@@ -6,7 +6,7 @@ android:
   components:
 
     - build-tools-21.1.2
-    - android-21
+    - android-22
 
 notifications:
   email: true
