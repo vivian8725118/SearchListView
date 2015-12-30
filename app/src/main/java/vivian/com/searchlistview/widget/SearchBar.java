@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import java.util.TimerTask;
 import vivian.com.searchlistview.R;
 
 
-public class SearchBar extends RelativeLayout {
+public class SearchBar extends LinearLayout {
 
     private static final int DURATION = 300;
 
@@ -60,7 +59,7 @@ public class SearchBar extends RelativeLayout {
 
         View view=inflate(getContext(), R.layout.bt_header_recommend_search, this);
         layout=(LinearLayout)view.findViewById(R.id.recommend_search_layout);
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
 
 //        measureView(layout);

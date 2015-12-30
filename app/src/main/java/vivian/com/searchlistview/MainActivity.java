@@ -2,6 +2,7 @@ package vivian.com.searchlistview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // 15/11/23  the click event
-
+                Log.e("MainActivity", "SearchBar click");
             }
         });
 //        layout.addView(mSearchBar);
