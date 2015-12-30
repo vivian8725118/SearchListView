@@ -60,6 +60,8 @@ public class SearchBar extends RelativeLayout {
 
         View view=inflate(getContext(), R.layout.bt_header_recommend_search, this);
         layout=(LinearLayout)view.findViewById(R.id.recommend_search_layout);
+        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(layoutParams);
 
 //        measureView(layout);
         distance = layout.getMeasuredWidth();
@@ -72,10 +74,8 @@ public class SearchBar extends RelativeLayout {
             e.printStackTrace();
         }
 
-
         etSearch = (TextView) findViewById(R.id.drawer_search);
         etSearch.setOnTouchListener(editTextOnTouchListener);
-
     }
 
     /**
@@ -168,8 +168,6 @@ public class SearchBar extends RelativeLayout {
      *
      */
     private void changeState() {
-
-
         switch (state) {
             case STATE_VIEW:
                 etSearch.setText("");

@@ -5,7 +5,7 @@
 
     <vivian.com.searchlistview.widget.SearchBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></vivian.com.searchlistview.widget.SearchBar>
+        android:layout_height="wrap_content"/>
 
     <ImageView
         android:layout_width="match_parent"
