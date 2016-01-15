@@ -5,7 +5,7 @@ jdk:
 android:
   components:
 
-    - build-tools-22.0.0
+    - build-tools-23.0.2
     - android-22
 
 notifications:
