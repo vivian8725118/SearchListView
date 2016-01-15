@@ -19,5 +19,3 @@ install:
 
   - chmod +x ./gradlew; ls -l gradlew; ./gradlew wrapper -v
 
-script:
-  - ./gradlew clean assembleDebug
