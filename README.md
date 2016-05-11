@@ -4,10 +4,15 @@
 # SearchListView
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
 #ScreenShot
-![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListView.gif)
-![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-161726.jpg)
-![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-163013.jpg)
-![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/art/NoRefreshableSearchListView.gif)
+
+<!--![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/SearchListView.gif)-->
+<!--![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-161726.jpg)-->
+<!--![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-163013.jpg)-->
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListView.gif" width = "350" height = "611" alt="SearchListView" align=center />
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-161726.jpg" width = "350" height = "611" alt="S51217-161726" align=center />
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-163013.jpg" width = "350" height = "611" alt="S51217-163013" align=center />
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/NoRefreshableSearchListView.gif" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
+
 #Usage
 ###SearchListView 直接放入布局中
          <vivian.com.searchlistview.widget.SearchListView

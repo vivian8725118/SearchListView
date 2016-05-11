@@ -59,7 +59,7 @@ public class SearchBar extends LinearLayout {
 
         View view=inflate(getContext(), R.layout.bt_header_recommend_search, this);
         layout=(LinearLayout)view.findViewById(R.id.recommend_search_layout);
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
 
 //        measureView(layout);
