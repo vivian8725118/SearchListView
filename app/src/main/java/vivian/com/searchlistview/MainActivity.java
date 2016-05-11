@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,15 +28,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mListView = (SearchListView) findViewById(R.id.listview);
+
+        //关闭刷新功能，在 addHeaderView 之前调用
+        mListView.setEnableRefresh(false);//设 false
+
         mSearchBar = new SearchBar(this);
 
         layout=(LinearLayout)LayoutInflater.from(this).inflate(R.layout.header_test,null);
         layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        mSearchBar.setOnClickListener(new View.OnClickListener() {
+        mSearchBar.setTextEditable(false);
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 15/11/23  the click event
-
+                Toast.makeText(MainActivity.this,"click",Toast.LENGTH_LONG).show();
             }
         });
 //        layout.addView(mSearchBar);
@@ -50,9 +56,6 @@ public class MainActivity extends Activity {
 
 //        mListView.addHeaderView(layout);
 
-        mListView.pullRefreshEnable(true);//下拉刷新
-        mListView.setAutoFetchMore(true);//自动加载更多
-
         //initialize
         for (int i = 0; i < 10; i++) {
             String str = "item" + (i + 1);
@@ -63,6 +66,15 @@ public class MainActivity extends Activity {
 
         //初始自动下拉刷新
         mListView.showHeader(true);
+
+        //带刷新功能的调用实例
+//        testForPullToRefresh();
+    }
+
+    public void testForPullToRefresh(){
+        mListView.pullRefreshEnable(true);//下拉刷新
+        mListView.setAutoFetchMore(true);//自动加载更多
+
         mListView.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -111,7 +123,6 @@ public class MainActivity extends Activity {
 
             }
         });
-
     }
 
     class MyAdapter extends BaseAdapter {

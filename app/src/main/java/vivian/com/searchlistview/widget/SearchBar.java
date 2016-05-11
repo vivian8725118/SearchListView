@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -20,14 +19,14 @@ import java.util.TimerTask;
 import vivian.com.searchlistview.R;
 
 
-public class SearchBar extends RelativeLayout {
+public class SearchBar extends LinearLayout {
 
     private static final int DURATION = 300;
 
     private int state = STATE_VIEW;
 
-    private static final int STATE_VIEW = 1;
-    private static final int STATE_EDIT = 2;
+    public static final int STATE_VIEW = 1;
+    public static final int STATE_EDIT = 2;
 
     private int distance;  //计算动画位移
     private int screenWidth; //屏幕的宽度
@@ -141,7 +140,7 @@ public class SearchBar extends RelativeLayout {
      *
      * @param isEditable
      */
-    private void setTextEditable(boolean isEditable) {
+    public void setTextEditable(boolean isEditable) {
         if (isEditable) {
             etSearch.setFocusableInTouchMode(true);
             etSearch.setFocusable(true);
@@ -159,6 +158,10 @@ public class SearchBar extends RelativeLayout {
                 imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }, DURATION);
+    }
+
+    public void setState(int state){
+        this.state=state;
     }
 
     /**
