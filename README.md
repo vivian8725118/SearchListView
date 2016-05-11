@@ -33,6 +33,8 @@
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
         手动请求网络-->显示 header-->请求成功，关闭 header
+###设置关闭刷新功能
+        mListView.setEnableRefresh(false);//设 false关闭刷新功能
         
 ###如果有问题需要讨论，请加我 QQ：1354458047 进行讨论
     
