@@ -1,6 +1,8 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Join the chat at https://gitter.im/vivian8725118/SearchListView](https://badges.gitter.im/vivian8725118/SearchListView.svg)](https://gitter.im/vivian8725118/SearchListView?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 # SearchListView
+讨论问题可以点击这个按钮(☞ﾟヮﾟ)☞[![Join the chat at https://gitter.im/vivian8725118/SearchListView](https://badges.gitter.im/vivian8725118/SearchListView.svg)](https://gitter.im/vivian8725118/SearchListView?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（☜(ﾟヮﾟ☜)对，就是它！！！）
 
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
 #ScreenShot
