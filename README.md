@@ -1,9 +1,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.org/vivian8725118/SearchListView.svg?branch=master)](https://github.com/vivian8725118/SearchListView)
-[![Coverage Status](https://coveralls.io/repos/vivian8725118/SearchListView/badge.svg?branch=master&service=github)](https://coveralls.io/github/vivian8725118/SearchListView?branch=master)
+[![Join the chat at https://gitter.im/vivian8725118/SearchListView](https://badges.gitter.im/vivian8725118/SearchListView.svg)](https://gitter.im/vivian8725118/SearchListView?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # SearchListView
 
-[![Join the chat at https://gitter.im/vivian8725118/SearchListView](https://badges.gitter.im/vivian8725118/SearchListView.svg)](https://gitter.im/vivian8725118/SearchListView?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
 #ScreenShot
 
