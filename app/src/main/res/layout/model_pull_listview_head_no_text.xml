@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!-- ListView的头部 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <!-- 内容 -->
+
+    <RelativeLayout
+        android:id="@+id/head_contentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/pulldown_footer_loading"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:progressDrawable="@drawable/bv_loading_rotate_pull_re"
+            android:layout_toLeftOf="@+id/tvHead"
+            android:indeterminate="true"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

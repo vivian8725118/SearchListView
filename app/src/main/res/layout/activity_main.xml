@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <vivian.com.searchlistview.widget.SearchListView
+   <vivian.com.searchlistview.widget.SearchListViewNoText
        android:id="@+id/listview"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -14,6 +14,6 @@
        android:drawSelectorOnTop="false"
        android:listSelector="@android:color/transparent">
 
-   </vivian.com.searchlistview.widget.SearchListView>
+   </vivian.com.searchlistview.widget.SearchListViewNoText>
 
 </RelativeLayout>

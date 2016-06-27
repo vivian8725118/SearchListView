@@ -9,15 +9,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import vivian.com.searchlistview.widget.SearchBar;
-import vivian.com.searchlistview.widget.SearchListView;
+import vivian.com.searchlistview.widget.SearchListViewNoText;
 
 public class MainActivity extends Activity {
-    SearchListView mListView;
+    SearchListViewNoText mListView;
     SearchBar mSearchBar;
     ArrayList<String> mList = new ArrayList<>();
     MyAdapter mAdappter;
@@ -28,10 +27,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mListView = (SearchListView) findViewById(R.id.listview);
+        mListView = (SearchListViewNoText) findViewById(R.id.listview);
 
         //关闭刷新功能，在 addHeaderView 之前调用
-        mListView.setEnableRefresh(false);//设 false
+        mListView.setEnableRefresh(true);//设 false
 
         mSearchBar = new SearchBar(this);
 
@@ -70,7 +69,7 @@ public class MainActivity extends Activity {
         mListView.showHeader(true);
 
         //带刷新功能的调用实例
-//        testForPullToRefresh();
+        testForPullToRefresh();
     }
 
     public void testForPullToRefresh(){
@@ -84,7 +83,7 @@ public class MainActivity extends Activity {
             }
         }, 3000);
 
-        mListView.setOnRefreshListener(new SearchListView.OnRefreshListener() {
+        mListView.setOnRefreshListener(new SearchListViewNoText.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
@@ -104,7 +103,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        mListView.setOnLastItemVisibleListener(new SearchListView.OnLastItemVisibleListener() {
+        mListView.setOnLastItemVisibleListener(new SearchListViewNoText.OnLastItemVisibleListener() {
             @Override
             public void onLastItemVisible() {
                 mListView.postDelayed(new Runnable() {
