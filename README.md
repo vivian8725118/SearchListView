@@ -15,6 +15,10 @@
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-163013.jpg" width = "350" height = "611" alt="S51217-163013" align=center />
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/NoRefreshableSearchListView.gif" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
 
+###没有文字的版本
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListViewNoTextHeaderRecord.gif?raw=true" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
+<img src="https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListViewNoTextFooterRecord.gif?raw=true" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
+
 #Usage
 ###SearchListView 直接放入布局中
          <vivian.com.searchlistview.widget.SearchListView
