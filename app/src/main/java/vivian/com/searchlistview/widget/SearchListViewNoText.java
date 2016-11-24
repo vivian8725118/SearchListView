@@ -47,7 +47,7 @@ import vivian.com.searchlistview.R;
  *
  *
  * @author vivian:the girl who is in love with 7heaven deeply
- * create at 15/11/23 17:10
+ *         create at 15/11/23 17:10
  */
 //纯动画,没有文字的版本
 public class SearchListViewNoText extends ListView implements OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemSelectedListener {
@@ -82,7 +82,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
     /**
      * 已加载全部
      */
-    private final static int LOAD_ALL=4;
+    private final static int LOAD_ALL = 4;
 
     /**
      * 标识查看更多状态
@@ -109,7 +109,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
     private ProgressBar progressBarHeader;
 
     /**
-     *Footer 刷新控件
+     * Footer 刷新控件
      */
     private ProgressBar progressBarFooter;
 
@@ -151,7 +151,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
     /**
      * 是否需要刷新功能，默认有刷新功能
      */
-    private boolean isEnableRefresh=true;
+    private boolean isEnableRefresh = true;
 
     private OnItemClickListener onItemClickListener;
     private OnItemLongClickListener onItemLongClickListener;
@@ -204,7 +204,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
         if (viewHeader == null) {
             viewHeader = LayoutInflater.from(getContext()).inflate(R.layout.model_pull_listview_head_no_text, null);
 
-            headContentLayout=(RelativeLayout)viewHeader.findViewById(R.id.head_contentLayout);
+            headContentLayout = (RelativeLayout) viewHeader.findViewById(R.id.head_contentLayout);
             progressBarHeader = (ProgressBar) viewHeader.findViewById(R.id.pulldown_footer_loading);
 
             layoutContent = (RelativeLayout) viewHeader.findViewById(R.id.layoutContent);
@@ -213,7 +213,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
             mTouchSlop = configuration.getScaledTouchSlop();
         }
 
-        if(!isEnableRefresh){
+        if (!isEnableRefresh) {
             headContentLayout.setVisibility(View.GONE);
         }
 
@@ -260,7 +260,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
             return;
         }
 
-        if(!isEnableRefresh){
+        if (!isEnableRefresh) {
             layoutContent.removeView(getHeaderView());
             headHeight = getHeaderView().getMeasuredHeight();
         }
@@ -301,7 +301,8 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
             return;
         }
 
-        onItemClickListener.onItemClick(parent, view, position > 0 ? position - 1 : 0, id);
+        if (state != TOUCH_STATE_REFRESHING&&state!=TOUCH_STATE_PULL_TO_REFRESH)
+            onItemClickListener.onItemClick(parent, view, position > 0 ? position - 1 : 0, id);
     }
 
     @Override
@@ -320,7 +321,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        return onItemLongClickListener!=null && onItemLongClickListener.onItemLongClick(parent, view, position > 0 ? position - 1 : 0, id);
+        return onItemLongClickListener != null && onItemLongClickListener.onItemLongClick(parent, view, position > 0 ? position - 1 : 0, id);
     }
 
     @Override
@@ -347,10 +348,11 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
 
     /**
      * 设置是否开启刷新功能，上拉下拉均包括。设为 false 的话，刷新功能均不可用，为普通列表
+     *
      * @param enable
      */
-    public void setEnableRefresh(boolean enable){
-        isEnableRefresh=enable;
+    public void setEnableRefresh(boolean enable) {
+        isEnableRefresh = enable;
     }
 
     /**
@@ -440,11 +442,11 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
                         switch (state) {
                             case TOUCH_STATE_REFRESHING:
                                 scroller.startScroll(0, paddingTop, 0, -paddingTop, SCROLL_DURATION);
-                                state=TOUCH_STATE_DONE;
+                                state = TOUCH_STATE_DONE;
                                 break;
                             case TOUCH_STATE_PULL_TO_REFRESH:
                                 if (paddingTop + headHeight > headHeight * 0.75) { //高过搜索框0.75的 那么显示搜索框
-                                    scroller.startScroll(0, paddingTop, 0, -( paddingTop), SCROLL_DURATION);
+                                    scroller.startScroll(0, paddingTop, 0, -(paddingTop), SCROLL_DURATION);
                                 } else if (paddingTop + headHeight > 0 && paddingTop + headHeight < headHeight * 0.25) {
                                     if (firstY - lastY < 0) {//向下
                                         scroller.startScroll(0, paddingTop, 0, -(headHeight - headerContentHeight + paddingTop), SCROLL_DURATION);
@@ -456,7 +458,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
                                 } else {//向上
                                     scroller.startScroll(0, paddingTop, 0, -(headHeight + paddingTop));
                                 }
-                                state=TOUCH_STATE_DONE;
+                                state = TOUCH_STATE_DONE;
                                 break;
                             case TOUCH_STATE_RELEASE_TO_REFRESH:
                                 state = TOUCH_STATE_REFRESHING;  //将进度切换到正在刷新
@@ -506,7 +508,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
         final int visibleItemCount = lastVisiblePostion - firstVisiblePosition + 1;
         final int totalItemCount = getCount() - getFooterViewsCount();
 
-        return (visibleItemCount<totalItemCount);
+        return (visibleItemCount < totalItemCount);
     }
 
     @Override
@@ -519,6 +521,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
 
     /**
      * 自动刷新，显示头部
+     *
      * @param show boolean
      */
     public void showHeader(boolean show) {
@@ -589,14 +592,15 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
 //        getFooterView().setVisibility(View.GONE);
     }
 
-    public void setLoadAll(){
-        state=LOAD_ALL;
+    public void setLoadAll() {
+        state = LOAD_ALL;
         changeHeaderViewByState();
         pullRefreshEnable(false);
     }
+
     // 当状态改变时候，调用该方法，以更新界面
     private void changeHeaderViewByState() {
-        if(isEnableRefresh) {
+        if (isEnableRefresh) {
             switch (state) {
                 case TOUCH_STATE_RELEASE_TO_REFRESH:
                     Log.v(TAG, "当前状态，松开刷新");
@@ -618,7 +622,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
                     break;
                 case TOUCH_STATE_DONE:
                     Log.v(TAG, "当前状态，done");
-                    
+
                     progressBarHeader.setVisibility(View.GONE);
                     break;
                 case LOAD_ALL:
@@ -651,7 +655,7 @@ public class SearchListViewNoText extends ListView implements OnScrollListener, 
             viewFooter = null;
             progressBarFooter = null;
         } else {
-            if (isEnableRefresh&&viewFooter == null) {
+            if (isEnableRefresh && viewFooter == null) {
                 addFooterView(getFooterView());
             }
         }
