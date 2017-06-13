@@ -5,7 +5,7 @@
 讨论问题可以点击这个按钮(☞ﾟヮﾟ)☞[![Join the chat at https://gitter.im/vivian8725118/SearchListView](https://badges.gitter.im/vivian8725118/SearchListView.svg)](https://gitter.im/vivian8725118/SearchListView?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（☜(ﾟヮﾟ☜)对，就是它！！！）
 
 带搜索栏的 listview，轻拉出现搜索栏，用力拉出现下拉刷新
-#ScreenShot
+# ScreenShot
 
 <!--![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/SearchListView.gif)-->
 <!--![Alt text](https://github.com/vivian8725118/SearchListView/blob/master/S51217-161726.jpg)-->
@@ -15,12 +15,12 @@
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/S51217-163013.jpg" width = "350" height = "611" alt="S51217-163013" align=center />
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/NoRefreshableSearchListView.gif" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
 
-###没有文字的版本
+### 没有文字的版本
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListViewNoTextHeaderRecord.gif?raw=true" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
 <img src="https://github.com/vivian8725118/SearchListView/blob/master/art/SearchListViewNoTextFooterRecord.gif?raw=true" width = "350" height = "611" alt="NoRefreshableSearchListView" align=center />
 
-#Usage
-###SearchListView 直接放入布局中
+# Usage
+### SearchListView 直接放入布局中
          <vivian.com.searchlistview.widget.SearchListView
              android:id="@+id/listview"
              android:layout_width="match_parent"
@@ -31,22 +31,22 @@
              android:drawSelectorOnTop="false"
              android:listSelector="@android:color/transparent">
    </vivian.com.searchlistview.widget.SearchListView>
-###添加 SearchBar
+### 添加 SearchBar
     SearchBar searchBar=new SearchBar(this);
     mListView.addHeaderView(searchBar);
     
-###设置自动下拉刷新
+### 设置自动下拉刷新
         mListView.pullRefreshEnable(true);//下拉刷新
         mListView.setAutoFetchMore(true);//自动加载更多
         手动请求网络-->显示 header-->请求成功，关闭 header
-###设置关闭刷新功能
+### 设置关闭刷新功能
         mListView.setEnableRefresh(false);//设 false关闭刷新功能
         
-###如果有问题需要讨论，请加我 QQ：1354458047 进行讨论
+### 如果有问题需要讨论，请加我 QQ：1354458047 进行讨论
     
-#LICENSE
+# LICENSE
 
-##The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright (c) 2015 Vivian
 
